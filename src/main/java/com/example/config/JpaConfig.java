@@ -36,7 +36,7 @@ public class JpaConfig implements TransactionManagementConfigurer {
     private String hbm2ddlAuto;
 
 
-    @Bean
+   @Bean
     public DataSource configureDataSource() {
         HikariConfig config = new HikariConfig();
         config.setDriverClassName(driver);

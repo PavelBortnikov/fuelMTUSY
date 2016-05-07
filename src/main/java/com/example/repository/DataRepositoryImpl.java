@@ -46,5 +46,17 @@ public class DataRepositoryImpl implements DataRepository<Data> {
         return result;
     }
 
+    @Override
+    public Set<String> getUser(String login) {
+        Set<String> result = new HashSet<>();
+        Object[] params = new Object[] { login };
+        int[] types = new int[] { Types.VARCHAR};
+        SqlRowSet rowSet = jdbcOperations.queryForRowSet("SELECT * FROM accounts WHERE login_account = ?;", params, types);
+        while (rowSet.next()) {
+            result.add(rowSet.getString("login_account"));
+        }
+        return result;
+    }
+
 
 }

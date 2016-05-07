@@ -15,4 +15,6 @@ public interface DataRepository<V extends DomainObject> {
 
     Set<String> getRandomData();
 
+    Set<String> getUser(String login);
+
 }

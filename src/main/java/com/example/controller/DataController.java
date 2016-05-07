@@ -31,13 +31,13 @@ public class DataController extends ExceptionHandlerController {
 
     @RequestMapping(value = "/persist", method = RequestMethod.POST)
     public @ResponseBody
-    Map<String, Object> persist(@RequestParam("data") String data) throws RestException {
+    Map<String, Object> persist(@RequestParam("first_name") String firstName,
+                                @RequestParam("password") String password) throws RestException {
         try {
-            if (data == null || data.equals("")) {
-                return Ajax.emptyResponse();
-            }
-            dataService.persist(data);
-            return Ajax.emptyResponse();
+            if(dataService.isLoginCorrect(firstName))
+                return Ajax.successResponse("\\index1.html");
+            else
+                return Ajax.successResponse("\\error.html");
         } catch (Exception e) {
             throw new RestException(e);
         }

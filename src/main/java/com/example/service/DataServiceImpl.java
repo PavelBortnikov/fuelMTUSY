@@ -39,4 +39,9 @@ public class DataServiceImpl implements DataService {
     public Set<String> getRandomData() {
         return dataRepository.getRandomData();
     }
+
+    @Override
+    public boolean isLoginCorrect(String login){
+        return !dataRepository.getUser(login).isEmpty();
+    }
 }

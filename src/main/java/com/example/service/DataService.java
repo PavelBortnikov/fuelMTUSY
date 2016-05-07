@@ -9,4 +9,6 @@ import java.util.Set;
     public boolean persist(String problem);
 
     public Set<String> getRandomData();
+
+    public boolean isLoginCorrect(String login);
 }
